@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>USA CARGOSHIP: Book Your Shipment</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Font - Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7f9fc; /* Light background for professionalism */
+        }
+        /* Custom scrollbar for better aesthetics */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #e0e7ff; /* Light blue track */
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #4f46e5; /* Darker blue thumb */
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #3b30ad; /* Even darker blue on hover */
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <!-- Header Section (Consistent with main page) -->
+    <header class="bg-blue-800 text-white shadow-lg py-4">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <!-- Logo/Company Name -->
+            <a href="index.html" class="text-3xl font-bold tracking-wider rounded-lg p-2 hover:bg-blue-700 transition duration-300">
+                USA CARGOSHIP
+            </a>
+            <!-- Navigation (could be expanded with more links) -->
+            <nav>
+                <ul class="flex space-x-6">
+                    <li><a href="index.html#services" class="hover:text-blue-200 transition duration-300">Services</a></li>
+                    <li><a href="index.html#why-us" class="hover:text-blue-200 transition duration-300">Why Us</a></li>
+                    <li><a href="index.html#best-deals" class="hover:text-blue-200 transition duration-300">Best Deals</a></li>
+                    <li><a href="index.html#contact" class="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-lg shadow-md transition duration-300">Get Quote</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content: Shipment Booking Form -->
+    <main class="py-16 md:py-24 bg-blue-50">
+        <div class="container mx-auto px-4">
+            <h1 class="text-4xl md:text-5xl font-extrabold text-center mb-12 text-blue-800">
+                Book Your Shipment Today
+            </h1>
+            <p class="text-xl text-center mb-10 text-gray-700 max-w-3xl mx-auto">
+                Fill out the form below to book your international cargo shipment. Our team will review your details and confirm your booking shortly.
+            </p>
+
+            <div class="max-w-3xl mx-auto bg-white p-8 rounded-lg shadow-xl border border-blue-100">
+                <form onsubmit="event.preventDefault(); submitBooking();">
+                    <div class="grid md:grid-cols-2 gap-6 mb-6">
+                        <div>
+                            <label for="fullName" class="block text-left text-sm font-medium mb-2">Full Name</label>
+                            <input type="text" id="fullName" name="fullName" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="John Doe" required>
+                        </div>
+                        <div>
+                            <label for="companyName" class="block text-left text-sm font-medium mb-2">Company Name (Optional)</label>
+                            <input type="text" id="companyName" name="companyName" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="ABC Corp.">
+                        </div>
+                        <div>
+                            <label for="bookingEmail" class="block text-left text-sm font-medium mb-2">Email Address</label>
+                            <input type="email" id="bookingEmail" name="bookingEmail" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="you@example.com" required>
+                        </div>
+                        <div>
+                            <label for="bookingPhone" class="block text-left text-sm font-medium mb-2">Phone Number</label>
+                            <input type="tel" id="bookingPhone" name="bookingPhone" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="(123) 456-7890" required>
+                        </div>
+                    </div>
+
+                    <h3 class="text-xl font-semibold mb-4 text-blue-800 mt-8">Shipment Details</h3>
+                    <div class="grid md:grid-cols-2 gap-6 mb-6">
+                        <div>
+                            <label for="originAddress" class="block text-left text-sm font-medium mb-2">Origin Address</label>
+                            <input type="text" id="originAddress" name="originAddress" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Street, City, State, Zip, Country" required>
+                        </div>
+                        <div>
+                            <label for="destinationAddress" class="block text-left text-sm font-medium mb-2">Destination Address</label>
+                            <input type="text" id="destinationAddress" name="destinationAddress" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Street, City, Country" required>
+                        </div>
+                        <div>
+                            <label for="preferredShippingDate" class="block text-left text-sm font-medium mb-2">Preferred Shipping Date</label>
+                            <input type="date" id="preferredShippingDate" name="preferredShippingDate" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                        </div>
+                        <div>
+                            <label for="cargoDescription" class="block text-left text-sm font-medium mb-2">Cargo Description</label>
+                            <input type="text" id="cargoDescription" name="cargoDescription" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="e.g., Electronic components, textiles">
+                        </div>
+                    </div>
+
+                    <div class="mb-6">
+                        <label for="cargoDimensions" class="block text-left text-sm font-medium mb-2">Dimensions (L x W x H in inches/cm)</label>
+                        <input type="text" id="cargoDimensions" name="cargoDimensions" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="e.g., 48x40x48 inches (2 pallets)">
+                    </div>
+
+                    <div class="mb-6">
+                        <label for="cargoWeight" class="block text-left text-sm font-medium mb-2">Weight (in lbs/kg)</label>
+                        <input type="text" id="cargoWeight" name="cargoWeight" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="e.g., 1500 lbs">
+                    </div>
+
+                    <div class="mb-6">
+                        <label for="shippingMethod" class="block text-left text-sm font-medium mb-2">Preferred Shipping Method</label>
+                        <select id="shippingMethod" name="shippingMethod" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                            <option value="">Select Method</option>
+                            <option value="sea-lcl">Sea Freight (LCL - Less than Container Load)</option>
+                            <option value="sea-fcl">Sea Freight (FCL - Full Container Load)</option>
+                            <option value="air-express">Air Freight (Express)</option>
+                            <option value="air-economy">Air Freight (Economy)</option>
+                            <option value="other">Other / Not Sure</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-6">
+                        <label for="additionalNotes" class="block text-left text-sm font-medium mb-2">Additional Notes / Special Instructions</label>
+                        <textarea id="additionalNotes" name="additionalNotes" rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="e.g., Fragile items, requires temperature control, specific delivery instructions..."></textarea>
+                    </div>
+
+                    <button type="submit" class="w-full bg-blue-700 hover:bg-blue-800 text-white font-bold py-4 px-6 rounded-lg shadow-lg transition duration-300 transform hover:scale-105">
+                        Submit Booking Request
+                    </button>
+                </form>
+
+                <!-- Confirmation Message Box -->
+                <div id="booking-confirmation-box" class="hidden mt-6 p-4 rounded-lg bg-green-100 text-green-800 border border-green-300">
+                    <p class="font-semibold">Booking Request Sent!</p>
+                    <p>Thank you for your booking request. We will review the details and confirm your shipment shortly. You will receive an email with your booking confirmation and tracking information.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer Section (Consistent with main page) -->
+    <footer class="bg-gray-900 text-gray-300 py-8">
+        <div class="container mx-auto px-4 text-center text-sm">
+            <p>&copy; 2025 USA CARGOSHIP. All rights reserved.</p>
+            <p class="mt-2">
+                Located in Oakland, CA | Serving the Americas, Africa, Western Europe, Middle East & Central Asia
+            </p>
+            <div class="flex justify-center space-x-4 mt-4">
+                <a href="#" class="hover:text-white transition duration-300">Privacy Policy</a>
+                <a href="#" class="hover:text-white transition duration-300">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function submitBooking() {
+            // In a real application, this would send data to a backend server.
+            // For this demonstration, we'll just show a confirmation message.
+
+            // Get form elements
+            const fullName = document.getElementById('fullName').value;
+            const companyName = document.getElementById('companyName').value;
+            const bookingEmail = document.getElementById('bookingEmail').value;
+            const bookingPhone = document.getElementById('bookingPhone').value;
+            const originAddress = document.getElementById('originAddress').value;
+            const destinationAddress = document.getElementById('destinationAddress').value;
+            const preferredShippingDate = document.getElementById('preferredShippingDate').value;
+            const cargoDescription = document.getElementById('cargoDescription').value;
+            const cargoDimensions = document.getElementById('cargoDimensions').value;
+            const cargoWeight = document.getElementById('cargoWeight').value;
+            const shippingMethod = document.getElementById('shippingMethod').value;
+            const additionalNotes = document.getElementById('additionalNotes').value;
+
+            // Simple validation (can be more robust)
+            if (!fullName || !bookingEmail || !bookingPhone || !originAddress || !destinationAddress || !preferredShippingDate) {
+                console.error("Please fill in all required fields for booking.");
+                return;
+            }
+
+            console.log("Shipment Booking Submitted:");
+            console.log("Full Name:", fullName);
+            console.log("Company Name:", companyName);
+            console.log("Email:", bookingEmail);
+            console.log("Phone:", bookingPhone);
+            console.log("Origin Address:", originAddress);
+            console.log("Destination Address:", destinationAddress);
+            console.log("Preferred Shipping Date:", preferredShippingDate);
+            console.log("Cargo Description:", cargoDescription);
+            console.log("Cargo Dimensions:", cargoDimensions);
+            console.log("Cargo Weight:", cargoWeight);
+            console.log("Shipping Method:", shippingMethod);
+            console.log("Additional Notes:", additionalNotes);
+
+            // Show confirmation message
+            document.getElementById('booking-confirmation-box').classList.remove('hidden');
+
+            // Optionally, clear the form after submission
+            document.getElementById('fullName').value = '';
+            document.getElementById('companyName').value = '';
+            document.getElementById('bookingEmail').value = '';
+            document.getElementById('bookingPhone').value = '';
+            document.getElementById('originAddress').value = '';
+            document.getElementById('destinationAddress').value = '';
+            document.getElementById('preferredShippingDate').value = '';
+            document.getElementById('cargoDescription').value = '';
+            document.getElementById('cargoDimensions').value = '';
+            document.getElementById('cargoWeight').value = '';
+            document.getElementById('shippingMethod').value = '';
+            document.getElementById('additionalNotes').value = '';
+
+            // Scroll to the confirmation message
+            document.getElementById('booking-confirmation-box').scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+    </script>
+</body>
+</html>
